@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
   web:
-    build: ./django_app
+    build: ./backend
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./django_app:/code
@@ -16,7 +16,7 @@ services:
     depends_on:
       - db
   frontend:
-    build: ./vue_app
+    build: ./todo_frontend
     ports:
       - "8080:8080"
     depends_on:

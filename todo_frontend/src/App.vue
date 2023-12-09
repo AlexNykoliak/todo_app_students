@@ -1,26 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="container mt-3">
+    <h1>My Todo List</h1>
+    <add-task @task-added="fetchTasks"></add-task>
+    <!-- ...rest of your code -->
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AddTask from './components/AddTask.vue';
+// import other components as necessary
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    AddTask,
+    // ... other components
+  },
+  methods: {
+    fetchTasks() {
+      // Method to fetch tasks
+    }
+  },
+  mounted() {
+    this.fetchTasks();
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

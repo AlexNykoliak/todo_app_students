@@ -1,13 +1,14 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import Login from '../components/UserLogin.vue';
-import TaskList from '../components/TaskList.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import TaskList from '../components/TaskList.vue'; // Make sure this component exists
+// Import other components as necessary
 
-Vue.use(Router);
+const routes = [
+  { path: '/', component: TaskList }, // Use TaskList or another component
+];
 
-export default new Router({
-  routes: [
-    { path: '/', component: TaskList },
-    { path: '/login', component: Login },
-  ]
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes,
 });
+
+export default router;
